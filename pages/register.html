@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flessi</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div  class="header-brand" onclick="location.href='./home.html'">
+        <img class="header-logo" src="../assets/logo-small.svg" alt="flessi_logo">
+        <img class="header-title" src="../assets/logo-text.svg" alt="flessi">
+      </div>
+      <nav class="header-user-actions">
+        <ul>
+          <li><a href="./login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <div id="register">
+          <div class="modal-content">
+            <div class="modal-title">
+              <h2>Registrarme<h2>
+            </div>
+            <form class="modal-form">
+              <label for="email">Usuario</label>
+              <input type="text" id="user" name="user" required />
+  
+              <label for="email">Nombre</label>
+              <input type="text" id="name" name="name" required />
+              
+              <label for="email">Apellido</label>
+              <input type="text" id="surname" name="surname" required />
+  
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+  
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" name="password" required />
+  
+              <button type="submit">Registrarme</button>
+            </form>
+          </div>
+      </div>
+    </main>
+  </body>
+</html>
