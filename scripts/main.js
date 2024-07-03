@@ -4,3 +4,11 @@ const handleHomeSearch = () => {
 
     window.location.href = `./jobs.html?category=${category}&location=${location}`
 }
+
+const openModal = (jobId) => {
+    document.getElementById(jobId).style.display = 'flex';
+}
+
+const closeModal = (jobId) => {
+    document.getElementById(jobId).style.display = 'none';
+}
