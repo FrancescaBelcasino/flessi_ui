@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --primary-color: #45002E;
+    --secondary-color: #57003e;
+    --terciary-color: #B05B8F;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Mulish", cursive;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}    
+
+button {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    width: 15%;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--terciary-color);
+}
+
+select {
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    line-height: inherit;
+}
+
+input {
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    appearance: none;
+    background-color: transparent;
+    line-height: inherit;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-logo {
+    height: 3vh;
+}
+
+.header-title {
+    height: 6vh;
+}
+
+.header-user-profile {
+    cursor: pointer;
+}
+
+.header-user-actions ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.header-user-actions ul a {
+    color: white;
+    font-size: 1.5vh;
+    font-weight: bold;
+    margin: 0px 10px;
+}
+
+.header-user-actions ul a, a:link, a:visited {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 6px; 
+}
+  
+.header-user-actions ul a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, white, white); 
+    background-size: 0 2px; 
+    background-repeat: no-repeat;
+    background-position: left bottom; 
+    transition: background-size .3s ease-in; 
+}
+  
+.header-user-actions ul a:hover::before {
+    background-size: 100% 2px;
+}
