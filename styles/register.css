@@ -1,0 +1,17 @@
+main {
+    height: 100%;
+    background-size: auto 150%;
+    background-repeat: no-repeat;
+    background-color: var(--secondary-color);
+    background-image: url("../assets/logo-small.svg");
+    background-position: right -15vh bottom -20vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
