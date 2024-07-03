@@ -119,3 +119,57 @@ header {
 .header-user-actions ul a:hover::before {
     background-size: 100% 2px;
 }
+
+.modal {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 35px;
+    border-radius: 5px;
+    width: 500px;
+}
+
+.modal .close {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-title h2 {
+    margin: 0;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.modal-form input {
+    padding: 10px 0px;
+    margin: 10px 0px;
+}
+
+.modal-form button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    width: 100%;
+    align-self: center;
+}
