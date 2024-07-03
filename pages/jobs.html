@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flessi</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-brand" onclick="location.href='./home.html'">
+        <img
+          class="header-logo"
+          src="../assets/logo-small.svg"
+          alt="flessi_logo"
+        />
+        <img class="header-title" src="../assets/logo-text.svg" alt="flessi" />
+      </div>
+      <nav class="header-user-actions">
+        <ul>
+          <li><a href="./login.html">Login</a></li>
+          <li><a href="./register.html">Registrarme</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="sidebar-filters">
+        <h3>Filtros</h3>
+          <select id="category">
+            <option value="" disabled selected>Categoría</option>
+            <option>Todos</option>
+            <option>Administración</option>
+            <option>Atencion al cliente</option>
+            <option>Hotelería</option>
+            <option>Gastronomía</option>
+            <option>Ventas</option>
+          </select>
+          <select id="location">
+            <option value="" disabled selected>Ubicación</option>
+            <option>Todos</option>
+            <option>Buenos Aires</option>
+            <option>Córdoba</option>
+            <option>Rosario</option>
+          </select>
+          <input id="date" type="date" placeholder="Fecha" />
+          <input id="time" type="time" placeholder="Hora de Entrada" />
+          <input id="pay" type="number" min="1" step="any" placeholder="Remuneración" />
+          <button id="reset-filters">Limpiar Filtros</button>
+        </div>
+      </div>
+
+      <div class="job-cards">
+      </div>
+    </main>
+
+    <div class="modals">
+    </div>
+  </body>
+</html>
