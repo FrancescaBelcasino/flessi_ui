@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flessi</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <script src="../scripts/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-brand">
+        <img
+          class="header-logo"
+          src="../assets/logo-small.svg"
+          alt="flessi_logo"
+        />
+        <img class="header-title" src="../assets/logo-text.svg" alt="flessi" />
+      </div>
+      <nav class="header-user-actions">
+        <ul>
+          <li><a href="./login.html">Login</a></li>
+          <li><a href="./register.html">Registrarme</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <h1 class="title">
+          TRABAJO A TU RITMO,<br />OPORTUNIDADES SIN LÍMITES
+        </h1>
+        <div class="search-box">
+          <label for="category">Categoría</label>
+          <select id="category">
+            <option>Todos</option>
+            <option>Administración</option>
+            <option>Atencion al cliente</option>
+            <option>Hotelería</option>
+            <option>Gastronomia</option>
+            <option>Ventas</option>
+          </select>
+
+          <label for="location">Ubicación</label>
+          <select id="location">
+            <option>Todos</option>
+            <option>Buenos Aires</option>
+            <option>Córdoba</option>
+            <option>Rosario</option>
+          </select>
+
+          <button onclick="handleHomeSearch()">Buscar</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

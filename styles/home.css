@@ -1,0 +1,61 @@
+main {
+    height: 100%;
+    background-size: auto 150%;
+    background-repeat: no-repeat;
+    background-color: var(--secondary-color);
+    background-image: url("../assets/logo-small.svg");
+    background-position: right -15vh bottom -20vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 50%;
+    height: 100%;
+}
+
+.title {
+    width: 70%;
+    color: white;
+    margin: 1vh 5vw;
+    line-height: 1.5;
+    font-size: 4vw;
+    font-weight: bold;
+    font-family: "Bebas Neue", cursive;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+    width: 70%;
+    margin: 1vh 5vw;
+    padding: 20px 0px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.search-box label {
+    font-weight: bold;
+    margin: 0px 5px;
+}
+
+.search-box select {
+    width: 25%;
+    padding: 10px;
+    margin: 0px 5px;
+}
+
+.search-box button {
+    width: 15%;
+    padding: 10px;
+    margin: 0px 5px;
+}
+
+.search-box button:hover {
+    background-color: var(--terciary-color);
+}
