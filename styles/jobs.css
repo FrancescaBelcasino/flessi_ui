@@ -33,6 +33,7 @@ main {
     border-radius: 15px;
     padding: 10px 15px;
     margin: 10px 0px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .sidebar-filters button {
@@ -40,6 +41,7 @@ main {
     padding: 10px;
     margin: 10px 0px;
     border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .job-cards {
@@ -61,6 +63,12 @@ main {
     font-size: 14px;
     color: var(--offset-color);
     background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all .2s ease-in-out;
+}
+
+.job-card:hover {
+    transform: scale(1.02); 
 }
 
 .job-card img {
@@ -116,6 +124,10 @@ main {
     border-radius: 10px;
     margin-right: 5px;
     font-size: 12px;
+}
+
+.tag:hover {
+    font-weight: bold;
 }
 
 .apply-button {
