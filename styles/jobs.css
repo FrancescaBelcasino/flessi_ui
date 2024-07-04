@@ -77,36 +77,36 @@ main {
     border-radius: 5px;
 }
 
-.job-card .job-category {
+.job-card div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-card .section-a {
     color: var(--offset-color);
     font-size: medium;
     margin-top: 10px;
 }
 
-.job-card .job-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.job-card .section-b {
     margin-top: 5px;
 }
 
-.job-card .job-title h3 {
+.job-card .section-b h3 {
     margin: 0;
     font-size: large;
     color: black;
 }
 
-.job-card .job-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.job-card .section-c {
     margin-top: 5px;
 }
 
-.job-card .job-money {
+.job-card .rate, .job-card .pay {
+    color: var(--primary-color);
     font-size: medium;
     font-weight: bold;
-    color: var(--primary-color);
 }
 
 .description {
