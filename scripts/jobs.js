@@ -1,3 +1,5 @@
+const params = new URLSearchParams(window.location.search);
+
 const fetchJobs = () => {
     let jobs_container = document.querySelector(".job-cards")
     let modals_container = document.querySelector(".modals")
@@ -8,6 +10,15 @@ const fetchJobs = () => {
             insertJob(jobs_container, job)
             insertModal(modals_container, job)
         }))
+        .then(() => handleURI("category"))
+        .then(() => handleURI("location"))
+}
+
+const handleURI = (param) => {
+    if (params.has(param)) {
+        document.getElementById(param).value = params.get(param)
+        filterJobs(param)
+    }
 }
 
 const insertJob = (container, job_data) => {
@@ -23,41 +34,51 @@ const insertJob = (container, job_data) => {
     job_img.setAttribute("src", job_data.img)
     job.appendChild(job_img)
 
-    // Add category
+    //Add section a
+    let section_a = document.createElement("div")
+    section_a.className = "section-a"
+
     let job_category = document.createElement("div")
-    job_category.className = "job-category"
+    job_category.className = "category"
     job_category.innerText = job_data.category
-    job.appendChild(job_category)
+    section_a.appendChild(job_category)
 
-    // Add title
-    let job_title = document.createElement("div")
-    job_title.className = "job-title"
+    let job_location = document.createElement("div")
+    job_location.className = "location"
+    job_location.innerText = job_data.location
+    section_a.appendChild(job_location)
 
-    let job_title_h3 = document.createElement("h3")
-    job_title_h3.innerText = job_data.name
-    job_title.appendChild(job_title_h3)
+    job.appendChild(section_a)
 
-    let job_title_rate = document.createElement("div")
-    job_title_rate.className = "job-money"
-    job_title_rate.innerText = `$${job_data.rate}/h`
-    job_title.appendChild(job_title_rate)
+    // Add section b
+    let section_b = document.createElement("div")
+    section_b.className = "section-b"
 
-    job.appendChild(job_title)
+    let job_name = document.createElement("h3")
+    job_name.innerText = job_data.name
+    section_b.appendChild(job_name)
 
-    // Add details
-    let job_details = document.createElement("div")
-    job_details.className = "job-details"
+    let job_rate = document.createElement("div")
+    job_rate.className = "rate"
+    job_rate.innerText = `$${job_data.rate}/h`
+    section_b.appendChild(job_rate)
 
-    let job_details_shift = document.createElement("div")
-    job_details_shift.innerText = `${formatter.format(new Date(job_data.start))} - ${formatter.format(new Date(job_data.end))}`
-    job_details.appendChild(job_details_shift)
+    job.appendChild(section_b)
 
-    let job_details_pay = document.createElement("div")
-    job_details_pay.className = "job-money"
-    job_details_pay.innerText = `$${job_data.pay}`
-    job_details.appendChild(job_details_pay)
+    // Add section c
+    let section_c = document.createElement("div")
+    section_c.className = "section-c"
 
-    job.appendChild(job_details)
+    let job_shift = document.createElement("div")
+    job_shift.innerText = `${formatter.format(new Date(job_data.start))} - ${formatter.format(new Date(job_data.end))}`
+    section_c.appendChild(job_shift)
+
+    let job_pay = document.createElement("div")
+    job_pay.className = "pay"
+    job_pay.innerText = `$${job_data.pay}`
+    section_c.appendChild(job_pay)
+
+    job.appendChild(section_c)
 
     // Add job to jobs container
     container.appendChild(job)
@@ -118,4 +139,21 @@ const insertModal = (container, job_data) => {
     modal.appendChild(modal_content)
 
     container.appendChild(modal)
+}
+
+const filterJobs = (filter) => {
+    let value = document.getElementById(filter).value
+
+    document.querySelectorAll(".job-card")
+        .forEach(j => {
+            if (value != 'Todos' && j.getElementsByClassName(filter)[0].innerText != value) {
+                console.log(j);
+                j.style.display = "none"
+            }
+        })
+}
+
+const cleanFilters = () => {
+    document.querySelectorAll(".job-card")
+        .forEach(j => j.style.display = "flex")
 }

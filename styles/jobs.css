@@ -3,12 +3,14 @@
 }
 
 body {
+    height: 100%;
     background-color: whitesmoke;
 }
 
 main {
     display: flex;
     height: 100%;
+    margin: 20px;
 }
 
 .sidebar-filters {
@@ -16,7 +18,7 @@ main {
     flex-direction: column;
     justify-content: top;
     top: 15px;
-    margin: 20px;
+    margin: 20px 30px 20px 10px;
     width: 15%;
     height: fit-content;
     position: sticky;
@@ -45,10 +47,10 @@ main {
 }
 
 .job-cards {
+    flex-grow: 1;
     display: grid;
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    width: 100%;
-    margin: 20px;
 }
 
 .job-card {
@@ -57,7 +59,6 @@ main {
     border: 2px solid var(--terciary-color);
     border-radius: 10px;
     padding: 20px;
-    margin: 10px;
     height: fit-content;
     cursor: pointer;
     font-size: 14px;
@@ -76,36 +77,36 @@ main {
     border-radius: 5px;
 }
 
-.job-card .job-category {
+.job-card div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-card .section-a {
     color: var(--offset-color);
     font-size: medium;
     margin-top: 10px;
 }
 
-.job-card .job-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.job-card .section-b {
     margin-top: 5px;
 }
 
-.job-card .job-title h3 {
+.job-card .section-b h3 {
     margin: 0;
     font-size: large;
     color: black;
 }
 
-.job-card .job-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.job-card .section-c {
     margin-top: 5px;
 }
 
-.job-card .job-money {
+.job-card .rate, .job-card .pay {
+    color: var(--primary-color);
     font-size: medium;
     font-weight: bold;
-    color: var(--primary-color);
 }
 
 .description {
@@ -136,4 +137,14 @@ main {
     text-align: center;
     border-radius: 10px;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    main {
+        flex-direction: column;
+    }
+
+    .sidebar-filters {
+        display: none;
+    }
 }
