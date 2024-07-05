@@ -89,3 +89,9 @@ const handleRegister = (e) => {
         }
     })
 }
+
+const handleLogout = () => {
+    localStorage.removeItem("user")
+
+    location.href='./home.html'
+}
