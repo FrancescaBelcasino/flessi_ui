@@ -79,6 +79,7 @@ header {
 }
 
 .header-user-profile {
+    display: none;
     cursor: pointer;
 }
 

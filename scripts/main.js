@@ -1,3 +1,10 @@
+window.addEventListener("load", () => {
+    if (localStorage.getItem("user") != null) {
+        document.querySelector(".header-user-profile").style.display = 'block'
+        document.querySelector(".header-user-actions").style.display = 'none'
+    }
+})
+
 const openModal = (jobId) => {
     document.getElementById(jobId).style.display = 'flex';
 }
@@ -12,7 +19,6 @@ const handleHomeSearch = () => {
 
     window.location.href = `./jobs.html?category=${category}&location=${location}`
 }
-
 
 const handleLogin = (e) => {
     e.preventDefault()
