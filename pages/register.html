@@ -6,10 +6,12 @@
     <title>flessi</title>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/register.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/main.js"></script>
   </head>
   <body>
     <header>
-      <div  class="header-brand" onclick="location.href='./home.html'">
+      <div class="header-brand" onclick="location.href='./home.html'">
         <img class="header-logo" src="../assets/logo-small.svg" alt="flessi_logo">
         <img class="header-title" src="../assets/logo-text.svg" alt="flessi">
       </div>
@@ -27,14 +29,14 @@
             <div class="modal-title">
               <h2>Registrarme<h2>
             </div>
-            <form class="modal-form">
-              <label for="email">Usuario</label>
-              <input type="text" id="user" name="user" required />
+            <form class="modal-form" onsubmit="handleRegister(event)">
+              <label for="username">Usuario</label>
+              <input type="text" id="username" name="username" required />
   
-              <label for="email">Nombre</label>
+              <label for="name">Nombre</label>
               <input type="text" id="name" name="name" required />
               
-              <label for="email">Apellido</label>
+              <label for="surname">Apellido</label>
               <input type="text" id="surname" name="surname" required />
   
               <label for="email">Email</label>
