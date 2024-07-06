@@ -48,18 +48,18 @@ i {
 }
 
 .user-fields h2 {
-    font-size: xx-large;
+    font-size: 4vh;
     margin-top: 0px;
 }
 
 .user-fields p {
-    font-size: x-large;
+    font-size: 3vh;
     margin-bottom: 0px;
 }
 
 .user-rating i {
     padding: 10px;
-    font-size: xx-large;
+    font-size: 2vw;
 }
 
 .user-sections {
@@ -81,17 +81,20 @@ i {
 
 .user-applications h3 {
     margin: 0px;
-    font-size: x-large;
+    font-size: 3vh;
 }
 
 .application-cards {
     display: flex;
+    height: 80%;
     gap: 20px;
 }
 
 .application-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     width: 33.33%;
     border-radius: 15px;
     border: 2px solid var(--terciary-color);
@@ -101,21 +104,24 @@ i {
 .application-card img {
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    margin: 20px;
+    width: 90%;
+    height: 60%;
     border-radius: 10px;
 }
 
 .application-title {
-    margin: 0px 20px;
-    font-size: x-large;
+    width: 90%;
+    margin: 0px;
+    font-size: 3vh;
     font-weight: bold;
+    vertical-align: middle;
 }
 
 .application-status {
     display: flex;
     justify-content: space-between;
-    margin: 0px 20px;
-    font-size: large;
+    width: 90%;
+    font-size: 2vh;
     font-weight: bold;
     color: var(--offset-color);
 }
@@ -138,7 +144,7 @@ i {
 
 .tags-section p {
     margin: 0px;
-    font-size: x-large;
+    font-size: 3vh;
     font-weight: bold;
 }
 
@@ -146,7 +152,7 @@ i {
     display: inline-block;
     background-color: var(--terciary-color);
     color: white;
-    font-size: large;
+    font-size: 2vh;
     padding: 5px 10px;
     border-radius: 10px;
     margin-right: 5px;
