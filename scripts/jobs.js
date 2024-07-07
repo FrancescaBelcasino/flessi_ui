@@ -4,8 +4,9 @@ const fetchJobs = () => {
     let jobs_container = document.querySelector(".job-cards")
     let modals_container = document.querySelector(".modals")
 
-    fetch('../temp/jobs.json')
+    fetch(`${API_URL}/jobs`)
         .then(r => r.json())
+        .then(r => r.results)
         .then(jobs => jobs.forEach(job => {
             insertJob(jobs_container, job)
             insertModal(modals_container, job)
@@ -31,7 +32,7 @@ const insertJob = (container, job_data) => {
 
     // Add image
     let job_img = document.createElement("img")
-    job_img.setAttribute("src", job_data.img)
+    job_img.setAttribute("src", job_data.image)
     job.appendChild(job_img)
 
     //Add section a
@@ -45,7 +46,7 @@ const insertJob = (container, job_data) => {
 
     let job_location = document.createElement("div")
     job_location.className = "location"
-    job_location.innerText = job_data.location
+    job_location.innerText = job_data.city
     section_a.appendChild(job_location)
 
     job.appendChild(section_a)
@@ -55,12 +56,12 @@ const insertJob = (container, job_data) => {
     section_b.className = "section-b"
 
     let job_name = document.createElement("h3")
-    job_name.innerText = job_data.name
+    job_name.innerText = job_data.title
     section_b.appendChild(job_name)
 
     let job_rate = document.createElement("div")
     job_rate.className = "rate"
-    job_rate.innerText = `$${job_data.rate}/h`
+    job_rate.innerText = `$${job_data.amountPerHour}/h`
     section_b.appendChild(job_rate)
 
     job.appendChild(section_b)
@@ -70,12 +71,12 @@ const insertJob = (container, job_data) => {
     section_c.className = "section-c"
 
     let job_shift = document.createElement("div")
-    job_shift.innerText = `${formatter.format(new Date(job_data.start))} - ${formatter.format(new Date(job_data.end))}`
+    job_shift.innerText = `${formatter.format(new Date(job_data.startTime))} - ${formatter.format(new Date(job_data.endTime))}`
     section_c.appendChild(job_shift)
 
     let job_pay = document.createElement("div")
     job_pay.className = "pay"
-    job_pay.innerText = `$${job_data.pay}`
+    job_pay.innerText = `$${job_data.amountToPay}`
     section_c.appendChild(job_pay)
 
     job.appendChild(section_c)
@@ -99,7 +100,7 @@ const insertModal = (container, job_data) => {
     modal_title.className = "modal-title"
 
     let modal_title_h2 = document.createElement("h2")
-    modal_title_h2.innerText = job_data.name
+    modal_title_h2.innerText = job_data.title
     modal_title.appendChild(modal_title_h2)
 
     let modal_title_close = document.createElement("span")
@@ -121,7 +122,7 @@ const insertModal = (container, job_data) => {
 
     let tags = document.createElement("div")
     tags.className = "tags"
-    job_data.tags.forEach(t => {
+    job_data.requirements.forEach(t => {
         let tag = document.createElement("span")
         tag.className = "tag"
         tag.innerText = t
