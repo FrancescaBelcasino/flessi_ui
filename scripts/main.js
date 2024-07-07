@@ -1,3 +1,5 @@
+const API_URL = "https://flessi-api.glitch.me"
+
 window.addEventListener("load", () => {
     if (localStorage.getItem("user") != null) {
         document.querySelector(".header-user-profile").style.display = 'block'
@@ -26,12 +28,15 @@ const handleLogin = (e) => {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
     
-    fetch("URL", {
+    fetch(`${API_URL}/users/login`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
         method: "POST",
-        body: {
+        body: JSON.stringify({
             "email": `${email}`,
             "password": `${password}`
-        }
+        })
     })
     .then(r => {
         if (r.status == 200) {
@@ -39,6 +44,8 @@ const handleLogin = (e) => {
                 email: email,
                 password: password
             }))
+
+            location.href = './jobs.html'
         } else {
             Swal.fire({
                 icon: "error",
@@ -55,21 +62,30 @@ const handleLogin = (e) => {
 const handleRegister = (e) => {
     e.preventDefault()
 
-    let username = document.getElementById("username").value
     let name = document.getElementById("name").value
     let surname = document.getElementById("surname").value
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
+    let dni = document.getElementById("dni").value
+    let phone = document.getElementById("phone").value
+    let city = document.getElementById("city").value
+    let address = document.getElementById("address").value
     
-    fetch("URL", {
+    fetch(`${API_URL}/users/register-worker`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
         method: "POST",
-        body: {
-            "username": `${username}`,
+        body: JSON.stringify({
             "name": `${name}`,
             "surname": `${surname}`,
             "email": `${email}`,
-            "password": `${password}`
-        }
+            "password": `${password}`,
+            "dni": `${dni}`,
+            "phone": `${phone}`,
+            "city": `${city}`,
+            "address": `${address}`
+        })
     })
     .then(r => {
         if (r.status == 200) {
@@ -77,6 +93,8 @@ const handleRegister = (e) => {
                 email: email,
                 password: password
             }))
+
+            location.href = './jobs.html'
         } else {
             Swal.fire({
                 icon: "error",

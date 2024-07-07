@@ -1,4 +1,6 @@
 main {
+    display: flex;
+    align-items: center;
     height: 100%;
     background-size: auto 150%;
     background-repeat: no-repeat;
@@ -7,15 +9,45 @@ main {
     background-position: right -15vh bottom -20vh;
 }
 
-.content {
+input {
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+#register {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 100%;
+    width: 40%;
+    margin-left: 5%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 12px 12px 12px rgba(0,0,0,0.3);
 }
 
-.modal-content {
-    box-shadow: 12px 12px 12px rgba(0,0,0,0.3);
+.register-title {
+    align-self: self-start;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+#register-form {
+    display: flex;
+    gap: 5%;
+    width: 90%;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+button {
+    margin-top: 3%;
+    margin-bottom: 5%;
+    padding: 10px 15px;
+    width: 50%;
 }
