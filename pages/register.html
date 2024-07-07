@@ -27,7 +27,7 @@
         <div class="register-title">
           <h2>Registrarme<h2>
         </div>
-        <form class="register-form" onsubmit="handleRegister(event)">
+        <form id="register-form" onsubmit="handleRegister(event)">
           <div class="form-column">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" required />
@@ -36,10 +36,10 @@
             <input type="email" id="email" name="email" required />
   
             <label for="username">DNI</label>
-            <input type="text" id="dni" name="dni" required />
+            <input type="number" id="dni" name="dni" required />
 
             <label for="email">Ciudad</label>
-            <input type="email" id="city" name="city" required />
+            <input type="text" id="city" name="city" required />
           </div>
           <div class="form-column">
             <label for="surname">Apellido</label>
@@ -49,13 +49,13 @@
             <input type="password" id="password" name="password" required />
 
             <label for="email">Telefono</label>
-            <input type="email" id="phone" name="phone" required />
+            <input type="number" id="phone" name="phone" required />
   
             <label for="email">Dirección</label>
-            <input type="email" id="adress" name="adress" required />
+            <input type="text" id="address" name="adress" required />
           </div>
         </form>
-        <button type="submit">Registrarme</button>
+        <button type="submit" form="register-form">Registrarme</button>
       </div>
     </main>
   </body>

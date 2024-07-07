@@ -33,7 +33,7 @@ input {
     margin-top: 2%;
 }
 
-.register-form {
+#register-form {
     display: flex;
     gap: 5%;
     width: 90%;
