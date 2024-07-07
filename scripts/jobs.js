@@ -155,6 +155,12 @@ const filterJobs = (filter) => {
 }
 
 const cleanFilters = () => {
+    document.getElementById("category").value = "Todos"
+    document.getElementById("location").value = "Todos"
+    document.getElementById("date").value = null
+    document.getElementById("time").value = null
+    document.getElementById("pay").value = null
+
     document.querySelectorAll(".job-card")
         .forEach(j => j.style.display = "flex")
 }
