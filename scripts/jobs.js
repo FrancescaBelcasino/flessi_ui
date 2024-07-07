@@ -134,6 +134,8 @@ const insertModal = (container, job_data) => {
     let apply_button = document.createElement("button")
     apply_button.className = "apply-button"
     apply_button.innerText = "Aplicar"
+    apply_button.setAttribute("jobid", job_data.id)
+    apply_button.addEventListener("click", () => handleApply(apply_button))
     modal_form.appendChild(apply_button)
 
     modal_content.appendChild(modal_form)
@@ -187,4 +189,39 @@ const cleanFilters = () => {
 
     document.querySelectorAll(".job-card")
         .forEach(j => j.style.display = "flex")
+}
+
+const handleApply = (button) => {
+    fetch(`${API_URL}/jobs/apply`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            "workerId": `${localStorage.getItem('user').id}`,
+            "jobId": `${button.getAttribute("jobid")}`
+        })
+    })
+    .then(r => {
+        if (r.status == 200) {
+            Swal.fire({
+                icon: "success",
+                iconColor: "#22BB33",
+                title: "Aplicacion Realizada!",
+                confirmButtonColor: "#57003e",
+                backdrop: false
+              });
+
+            closeModal(button.getAttribute("jobid"))
+        } else {
+            Swal.fire({
+                icon: "error",
+                iconColor: "#BB2124",
+                title: "Oops...",
+                text: "Se produjo un error al aplicar!",
+                confirmButtonColor: "#57003e",
+                backdrop: false
+              });
+        }
+    })
 }

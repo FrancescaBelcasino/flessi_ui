@@ -125,6 +125,7 @@ main {
 
 .tag:hover {
     font-weight: bold;
+    background-color: var(--secondary-color);
 }
 
 .apply-button {
