@@ -96,9 +96,10 @@ i {
     justify-content: space-evenly;
     align-items: center;
     width: 33.33%;
+    background-color: white;
     border-radius: 15px;
     border: 2px solid var(--terciary-color);
-    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .application-card img {
@@ -124,6 +125,10 @@ i {
     font-size: 2vh;
     font-weight: bold;
     color: var(--offset-color);
+}
+
+.application-status p {
+    margin: 0px;
 }
 
 .user-attributes {
