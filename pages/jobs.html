@@ -37,7 +37,7 @@
     <main>
       <div class="sidebar-filters">
         <h3>Filtros</h3>
-        <select id="category" onchange="filterJobs('category')">
+        <select id="category" onchange="handleSelectFilter('category')">
           <option value="" disabled selected>Categoría</option>
           <option>Todos</option>
           <option>Administración</option>
@@ -47,21 +47,32 @@
           <option>Gastronomía</option>
           <option>Ventas</option>
         </select>
-        <select id="location" onchange="filterJobs('location')">
+        <select id="location" onchange="handleSelectFilter('location')">
           <option value="" disabled selected>Ubicación</option>
           <option>Todos</option>
           <option>Buenos Aires</option>
           <option>Córdoba</option>
           <option>Rosario</option>
         </select>
-        <input id="date" type="date" placeholder="Fecha" />
-        <input id="time" type="time" placeholder="Hora de Entrada" />
+        <input
+          id="date"
+          type="date"
+          placeholder="Fecha"
+          onchange="handleInputFilter('date')"
+        />
+        <input
+          id="time"
+          type="time"
+          placeholder="Hora de Entrada"
+          onchange="handleInputFilter('time')"
+        />
         <input
           id="pay"
           type="number"
           min="1"
           step="any"
           placeholder="Remuneración"
+          onchange="handleInputFilter('pay')"
         />
         <button id="reset-filters" onclick="cleanFilters()">
           Limpiar Filtros

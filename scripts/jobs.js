@@ -18,12 +18,12 @@ const fetchJobs = () => {
 const handleURI = (param) => {
     if (params.has(param)) {
         document.getElementById(param).value = params.get(param)
-        filterJobs(param)
+        handleSelectFilter(param)
     }
 }
 
 const insertJob = (container, job_data) => {
-    const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' });
+    const formatter = new Intl.DateTimeFormat('es-AR', { hour: '2-digit', minute: '2-digit', hour12: false });
 
     // Create job card
     let job = document.createElement("div")
@@ -71,7 +71,8 @@ const insertJob = (container, job_data) => {
     section_c.className = "section-c"
 
     let job_shift = document.createElement("div")
-    job_shift.innerText = `${formatter.format(new Date(job_data.startTime))} - ${formatter.format(new Date(job_data.endTime))}`
+    job_shift.className = "time"
+    job_shift.innerText = `${job_data.startTime.split('T')[0]} ${formatter.format(new Date(job_data.startTime))} - ${formatter.format(new Date(job_data.endTime))}`
     section_c.appendChild(job_shift)
 
     let job_pay = document.createElement("div")
@@ -142,13 +143,36 @@ const insertModal = (container, job_data) => {
     container.appendChild(modal)
 }
 
-const filterJobs = (filter) => {
+const handleSelectFilter = (filter) => {
     let value = document.getElementById(filter).value
 
     document.querySelectorAll(".job-card")
         .forEach(j => {
             if (value != 'Todos' && j.getElementsByClassName(filter)[0].innerText != value) {
-                console.log(j);
+                j.style.display = "none"
+            }
+        })
+}
+
+const handleInputFilter = (filter) => {
+    let value = document.getElementById(filter).value
+
+    document.querySelectorAll(".job-card")
+        .forEach(j => {
+            let card_value
+            switch (filter) {
+                case 'pay':
+                    card_value = j.getElementsByClassName(filter)[0].innerText.slice(1)
+                    break;            
+                case 'date':
+                    card_value = j.getElementsByClassName('time')[0].innerText.split(' ')[0]
+                    break;
+                case 'time':
+                    card_value = j.getElementsByClassName(filter)[0].innerText.split(' ')[1]
+                    break;
+            }
+
+            if (card_value != value) {
                 j.style.display = "none"
             }
         })
