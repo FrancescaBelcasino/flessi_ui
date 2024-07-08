@@ -10,9 +10,11 @@
     />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/profile.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../scripts/main.js"></script>
+    <script src="../scripts/profile.js"></script>
   </head>
-  <body>
+  <body onload="fetchUserData()">
     <header>
       <div class="header-brand" onclick="location.href='./home.html'">
         <img
@@ -34,19 +36,19 @@
     <main>
       <div class="user-details">
         <img
-          src="https://drive.google.com/thumbnail?id=1WX0260m_CCTw-F-bYb-Z7MmG4-XtlQFW"
+          src="https://drive.google.com/thumbnail?id=1OlggNlQ94tvQ_fOQ-Ijeux6hVoSXJGB-"
           alt="profile-picture"
         />
         <div class="user-fields">
-          <h2 id="user-name">Nombre de usuario</h2>
+          <h2 id="user-name"></h2>
           <p id="user-email">
-            <i class="fa-solid fa-envelope"></i>email de usuario
+            <i class="fa-solid fa-envelope"></i>
           </p>
           <p id="user-phone">
-            <i class="fa-solid fa-phone"></i>telefono de usuario
+            <i class="fa-solid fa-phone"></i>
           </p>
           <p id="user-location">
-            <i class="fa-solid fa-location-dot"></i>ubicacion de usuario
+            <i class="fa-solid fa-location-dot"></i>
           </p>
         </div>
         <div class="user-rating">
@@ -60,77 +62,43 @@
       <div class="user-sections">
         <div class="user-applications">
           <h3>Mis Postulaciones</h3>
-          <div class="application-cards">
-            <div class="application-card">
-              <img
-                src="https://drive.google.com/thumbnail?id=1WX0260m_CCTw-F-bYb-Z7MmG4-XtlQFW"
-                alt=""
-              />
-              <p class="application-title">Barista</p>
-              <div class="application-status">
-                <p>Estado</p>
-                <p>Pendiente</p>
-              </div>
-            </div>
-            <div class="application-card">
-              <img
-                src="https://drive.google.com/thumbnail?id=1WX0260m_CCTw-F-bYb-Z7MmG4-XtlQFW"
-                alt=""
-              />
-              <p class="application-title">Barista</p>
-              <div class="application-status">
-                <p>Estado</p>
-                <p>Pendiente</p>
-              </div>
-            </div>
-            <div class="application-card">
-              <img
-                src="https://drive.google.com/thumbnail?id=1WX0260m_CCTw-F-bYb-Z7MmG4-XtlQFW"
-                alt=""
-              />
-              <p class="application-title">Barista</p>
-              <div class="application-status">
-                <p>Estado</p>
-                <p>Pendiente</p>
-              </div>
-            </div>
-          </div>
+          <div class="application-cards"></div>
         </div>
         <div class="user-attributes">
           <div class="tags-section">
             <p>Intereses</p>
-            <div class="tags">
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
+            <div id="interests" class="tags">
+              <button
+                class="add-attribute-button"
+                id="add-interest"
+                onclick="handleAddButton('interest')"
+              >
+                Añadir
+              </button>
             </div>
           </div>
           <div class="tags-section">
             <p>Habilidades</p>
-            <div class="tags">
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
+            <div id="skills" class="tags">
+              <button
+                class="add-attribute-button"
+                id="add-interest"
+                onclick="handleAddButton('skill')"
+              >
+                Añadir
+              </button>
             </div>
           </div>
           <div class="tags-section">
             <p>Experiencias</p>
-            <div class="tags">
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
-              <span class="tag">ejemplo</span>
+            <div id="experiences" class="tags">
+              <button
+                class="add-attribute-button"
+                id="add-interest"
+                onclick="handleAddButton('experience')"
+              >
+                Añadir
+              </button>
             </div>
           </div>
         </div>

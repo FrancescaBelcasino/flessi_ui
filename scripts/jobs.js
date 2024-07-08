@@ -198,7 +198,7 @@ const handleApply = (button) => {
         },
         method: "POST",
         body: JSON.stringify({
-            "workerId": `${localStorage.getItem('user').id}`,
+            "workerId": `${JSON.parse(localStorage.getItem('user')).id}`,
             "jobId": `${button.getAttribute("jobid")}`
         })
     })
