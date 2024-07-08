@@ -41,13 +41,8 @@ const handleLogin = (e) => {
     .then(async r => {
         if (r.status == 200) {
             let responseBody = await r.json()
-            console.log(responseBody);
 
-            localStorage.setItem("user", JSON.stringify({
-                id: responseBody.id,
-                email: email,
-                password: password
-            }))
+            localStorage.setItem("user", responseBody.id)
 
             location.href = './jobs.html'
         } else {
@@ -91,12 +86,11 @@ const handleRegister = (e) => {
             "address": `${address}`
         })
     })
-    .then(r => {
+    .then(async r => {
         if (r.status == 200) {
-            localStorage.setItem("user", JSON.stringify({
-                email: email,
-                password: password
-            }))
+            let responseBody = await r.json()
+
+            localStorage.setItem("user", responseBody.id)
 
             location.href = './jobs.html'
         } else {
