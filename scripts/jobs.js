@@ -225,3 +225,58 @@ const handleApply = (button) => {
         }
     })
 }
+
+const handleCreateJob = (e) => {
+    e.preventDefault()
+
+    const category = document.getElementById("job-category").value
+    const current_date = new Date().toISOString().split('T')[0]
+
+    const images = {
+        "Administración": "1DuW2HC2TEm80im1ct3QmKBUC_Cz81HzK",
+        "Atención al Cliente": "1NFpUwXDSpGxJZOVXusSkMGfV-64fUbV5",
+        "Construcción": "1miXHEz_xzIU_VzrUmyX3-dknve1xUeDq",
+        "Hotelería": "1ML7BaDwkuVp6nGUEH19J0YHBN7z8z9KW",
+        "Gastronomía": "1XvNaLWcHZQo_GjQp-c-_dEf9s9LUgLoj",
+        "Ventas": "1u4y-QtEQF32t9TjUi6iJuCLzN4KKJ1Iq",
+    }
+
+    fetch(`${API_URL}/jobs/create-offer`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            "companyID": `${localStorage.getItem("user")}`,
+            "title": `${document.getElementById("job-title").value}`,
+            "description": `${document.getElementById("job-description").value}`,
+            "category": `${category}`,
+            "image": `https://drive.google.com/thumbnail?id=${images[category]}`,
+            "startTime": `${current_date}T${document.getElementById("job-start-time").value}:00`,
+            "endTime": `${current_date}T${document.getElementById("job-end-time").value}:00`,
+            "address": `${document.getElementById("job-address").value}`,
+            "city": `${document.getElementById("job-city").value}`,
+            "amountToPay": `${document.getElementById("job-price").value}`,
+            "amountPerHour": `${document.getElementById("job-total").value}`,
+            "requirements": Array.from(document.querySelectorAll(".new-requirement")).map(n => n.innerText),
+        })
+    })
+    .then(r => {
+        if (r.status == 200) {
+            closeModal("new-job-modal")
+            window.location.reload();
+        }
+    })
+}
+
+const handleAddRequirement = () => {
+    let new_requirement = document.getElementById("job-requirement").value
+
+    if (new_requirement != "") {
+        let span = document.createElement("span")
+        span.className = "new-requirement"
+        span.innerText = new_requirement
+        document.getElementById("job-requirements").appendChild(span)
+        document.getElementById("job-requirement").value = null
+    }
+}
