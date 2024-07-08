@@ -38,9 +38,13 @@ const handleLogin = (e) => {
             "password": `${password}`
         })
     })
-    .then(r => {
+    .then(async r => {
         if (r.status == 200) {
+            let responseBody = await r.json()
+            console.log(responseBody);
+
             localStorage.setItem("user", JSON.stringify({
+                id: responseBody.id,
                 email: email,
                 password: password
             }))
@@ -49,7 +53,7 @@ const handleLogin = (e) => {
         } else {
             Swal.fire({
                 icon: "error",
-                iconColor: "#B22222",
+                iconColor: "#BB2124",
                 title: "Oops...",
                 text: "Usuario o contraseña incorrectos!",
                 confirmButtonColor: "#57003e",
@@ -98,7 +102,7 @@ const handleRegister = (e) => {
         } else {
             Swal.fire({
                 icon: "error",
-                iconColor: "#B22222",
+                iconColor: "#BB2124",
                 title: "Oops...",
                 text: "Se produjo un error al registrar, por favor intente mas tarde...",
                 confirmButtonColor: "#57003e",

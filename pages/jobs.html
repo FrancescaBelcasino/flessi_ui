@@ -6,6 +6,7 @@
     <title>flessi</title>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/jobs.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/jobs.js"></script>
   </head>
@@ -26,41 +27,62 @@
         </ul>
       </nav>
       <div class="header-user-profile" onclick="location.href='./profile.html'">
-        <img class="header-logo" src="../assets/user-icon.svg" alt="user-icon">
+        <img
+          class="header-logo"
+          src="../assets/user-icon.svg"
+          alt="user-icon"
+        />
       </div>
     </header>
 
     <main>
       <div class="sidebar-filters">
         <h3>Filtros</h3>
-          <select id="category" onchange="filterJobs('category')">
-            <option value="" disabled selected>Categoría</option>
-            <option>Todos</option>
-            <option>Administración</option>
-            <option>Atencion al cliente</option>
-            <option>Hotelería</option>
-            <option>Gastronomía</option>
-            <option>Ventas</option>
-          </select>
-          <select id="location" onchange="filterJobs('location')">
-            <option value="" disabled selected>Ubicación</option>
-            <option>Todos</option>
-            <option>Buenos Aires</option>
-            <option>Córdoba</option>
-            <option>Rosario</option>
-          </select>
-          <input id="date" type="date" placeholder="Fecha" />
-          <input id="time" type="time" placeholder="Hora de Entrada" />
-          <input id="pay" type="number" min="1" step="any" placeholder="Remuneración" />
-          <button id="reset-filters" onclick="cleanFilters()">Limpiar Filtros</button>
-        </div>
+        <select id="category" onchange="handleSelectFilter('category')">
+          <option value="" disabled selected>Categoría</option>
+          <option>Todos</option>
+          <option>Administración</option>
+          <option>Atencion al Cliente</option>
+          <option>Construcción</option>
+          <option>Hotelería</option>
+          <option>Gastronomía</option>
+          <option>Ventas</option>
+        </select>
+        <select id="location" onchange="handleSelectFilter('location')">
+          <option value="" disabled selected>Ubicación</option>
+          <option>Todos</option>
+          <option>Buenos Aires</option>
+          <option>Córdoba</option>
+          <option>Rosario</option>
+        </select>
+        <input
+          id="date"
+          type="date"
+          placeholder="Fecha"
+          onchange="handleInputFilter('date')"
+        />
+        <input
+          id="time"
+          type="time"
+          placeholder="Hora de Entrada"
+          onchange="handleInputFilter('time')"
+        />
+        <input
+          id="pay"
+          type="number"
+          min="1"
+          step="any"
+          placeholder="Remuneración"
+          onchange="handleInputFilter('pay')"
+        />
+        <button id="reset-filters" onclick="cleanFilters()">
+          Limpiar Filtros
+        </button>
       </div>
 
-      <div class="job-cards">
-      </div>
+      <div class="job-cards"></div>
     </main>
 
-    <div class="modals">
-    </div>
+    <div class="modals"></div>
   </body>
 </html>
