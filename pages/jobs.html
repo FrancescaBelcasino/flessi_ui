@@ -42,7 +42,7 @@
           <option value="" disabled selected>Categoría</option>
           <option>Todos</option>
           <option>Administración</option>
-          <option>Atencion al Cliente</option>
+          <option>Atención al Cliente</option>
           <option>Construcción</option>
           <option>Hotelería</option>
           <option>Gastronomía</option>
@@ -81,8 +81,121 @@
       </div>
 
       <div class="job-cards"></div>
+
+      <button class="add-job-button" onclick="openModal('new-job-modal')">
+        +
+      </button>
     </main>
 
-    <div class="modals"></div>
+    <div class="modals">
+      <div id="new-job-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-title">
+            <h2>Publicar Nuevo Trabajo</h2>
+            <span class="close" onclick="closeModal('new-job-modal')"
+              >&times;</span
+            >
+          </div>
+          <form class="modal-form" onsubmit="handleCreateJob(event)">
+            <div class="form-columns">
+              <div class="form-column">
+                <label for="job-title">Título</label>
+                <input type="text" id="job-title" name="job-title" required />
+
+                <label for="job-start-time">Hora de Inicio</label>
+                <input
+                  type="time"
+                  id="job-start-time"
+                  name="job-start-time"
+                  required
+                />
+
+                <label for="job-price">Precio por Hora</label>
+                <input
+                  type="number"
+                  id="job-price"
+                  name="job-price"
+                  min="1"
+                  step="any"
+                  required
+                />
+
+                <label for="job-city">Ciudad</label>
+                <select id="job-city" name="job-city" required>
+                  <option>Buenos Aires</option>
+                  <option>Córdoba</option>
+                  <option>Rosario</option>
+                </select>
+              </div>
+              <div class="form-column">
+                <label for="job-category">Categoría</label>
+                <select id="job-category" name="job-category" required>
+                  <option>Administración</option>
+                  <option>Atención al Cliente</option>
+                  <option>Construcción</option>
+                  <option>Hotelería</option>
+                  <option>Gastronomía</option>
+                  <option>Ventas</option>
+                </select>
+
+                <label for="job-end-time">Hora de Fin</label>
+                <input
+                  type="time"
+                  id="job-end-time"
+                  name="job-end-time"
+                  required
+                />
+
+                <label for="job-total">Precio Total</label>
+                <input
+                  type="number"
+                  id="job-total"
+                  name="job-total"
+                  min="1"
+                  step="any"
+                  required
+                />
+
+                <label for="job-address">Dirección</label>
+                <input
+                  type="text"
+                  id="job-address"
+                  name="job-address"
+                  required
+                />
+              </div>
+            </div>
+
+            <label for="job-description">Descripción</label>
+            <input
+              type="text"
+              id="job-description"
+              name="job-description"
+              required
+            />
+
+            <label for="job-requirements">Requerimientos</label>
+            <div id="job-requirements"></div>
+
+            <div class="form-columns">
+              <input
+                type="text"
+                id="job-requirement"
+                placeholder="Nuevo Requerimiento"
+              />
+              <button
+                type="button"
+                class="add-requirement-button"
+                onclick="handleAddRequirement()"
+              >
+                Añadir
+              </button>
+            </div>
+
+            <button type="submit">Publicar</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

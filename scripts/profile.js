@@ -1,5 +1,5 @@
 const fetchUserData = () => {
-    fetch(`${API_URL}/users/workers/${JSON.parse(localStorage.getItem('user')).id}`)
+    fetch(`${API_URL}/users/workers/${localStorage.getItem('user')}`)
     .then(r => r.json())
     .then(r => r.result)
     .then(user_data => {
@@ -68,7 +68,7 @@ const handleAddButton = (type) => {
         backdrop: false,
         showLoaderOnConfirm: true,
         preConfirm: async (value) => {
-            fetch(`${API_URL}/users/workers/${JSON.parse(localStorage.getItem('user')).id}/add-attribute`, {
+            fetch(`${API_URL}/users/workers/${localStorage.getItem('user')}/add-attribute`, {
                 headers: {
                     "Content-Type": "application/json"
                 },
